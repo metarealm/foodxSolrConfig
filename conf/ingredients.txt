@@ -1,0 +1,12 @@
+chicken
+mutton
+lamb
+pork
+cheese
+rice
+onion
+giger
+garlic
+egg
+paneer
+peanut
