@@ -1,0 +1,7 @@
+non-veg
+hindu-non-veg
+muslim-non-veg
+eggiteraian
+veg
+
+
