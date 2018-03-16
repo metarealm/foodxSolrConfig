@@ -1,6 +1,0 @@
-cuttack=20,85
-hyderabad=17,78
-chennai=13,80
-madras=13,80
-kolkata=22,88
-calcutta=22,88

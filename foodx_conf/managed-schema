@@ -461,7 +461,7 @@
   <fieldType name="tlong" class="solr.TrieLongField" positionIncrementGap="0" docValues="true" precisionStep="8"/>
   <fieldType name="tlongs" class="solr.TrieLongField" positionIncrementGap="0" docValues="true" multiValued="true" precisionStep="8"/>
   <field name="Food_Type_Speciality" type="strings" multiValued="true" indexed="true" stored="false"/>
-  <field name="recipeTitle" type="text_en" indexed="true" stored="false"/>
+  <field name="recipeTitle" type="text_en" indexed="true" stored="true"/>
   <field name="_root_" type="string" docValues="false" indexed="true" stored="false"/>
   <field name="_text_" type="text_general" multiValued="true" indexed="true" stored="false"/>
   <field name="_version_" type="long" indexed="false" stored="false"/>
@@ -475,10 +475,8 @@
   <field name="views" type="int" indexed="true" stored="false"/>
   <field name="youtubevideoID" type="string" indexed="true" stored="true"/>
   <field name="video_country" type="text_country" multiValued="true" stored="false" indexed="true"/>
-  <field name="video_state" type="text_country" multiValued="true" stored="false" indexed="true"/>
-  <field name="video_location" type="text_country" multiValued="true" stored="false" indexed="true"/>
-  <field name="video_geo_province" type="location" multiValued="true" stored="false" indexed="true"/>
-  <field name="video_geo_location" type="location" multiValued="true" stored="false" indexed="true"/>
+  <field name="video_state" type="text_province" multiValued="true" stored="false" indexed="true"/>
+  <field name="video_location" type="text_location" multiValued="true" stored="false" indexed="true"/>
   <field name="channel_country" type="text_country" multiValued="true" stored="false" indexed="true"/>
   <field name="channel_state" type="text_country" multiValued="true" stored="false" indexed="true"/>
   <field name="channel_location" type="text_country" multiValued="true" stored="false" indexed="true"/>
