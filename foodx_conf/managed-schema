@@ -216,6 +216,15 @@
       <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
     </analyzer>
   </fieldType>
+  <fieldType name="text_languages" class="solr.TextField" autoGeneratePhraseQueries="true" positionIncrementGap="100">
+    <analyzer type="index">
+      <tokenizer class="solr.PatternTokenizerFactory" pattern="[A-Za-z]*" group="0"/>
+      <filter class="solr.KeepWordFilterFactory" ignoreCase="true" words="languages.txt"/>
+      <filter class="solr.LowerCaseFilterFactory"/>
+      <filter class="solr.EnglishMinimalStemFilterFactory"/>
+      <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+    </analyzer>
+  </fieldType>
   <fieldType name="text_location" class="solr.TextField" autoGeneratePhraseQueries="true" positionIncrementGap="100">
     <analyzer type="index">
       <tokenizer class="solr.PatternTokenizerFactory" pattern="[A-Za-z]*" group="0"/>
@@ -474,13 +483,15 @@
   <field name="vedioTag" type="text_en" indexed="true" stored="false"/>
   <field name="views" type="int" indexed="true" stored="false"/>
   <field name="youtubevideoID" type="string" indexed="true" stored="true"/>
+  <field name="allData" type="text_country" multiValued="true" stored="false" indexed="true"/>
   <field name="video_country" type="text_country" multiValued="true" stored="false" indexed="true"/>
   <field name="video_state" type="text_province" multiValued="true" stored="false" indexed="true"/>
   <field name="video_location" type="text_location" multiValued="true" stored="false" indexed="true"/>
   <field name="channel_country" type="text_country" multiValued="true" stored="false" indexed="true"/>
-  <field name="channel_state" type="text_country" multiValued="true" stored="false" indexed="true"/>
-  <field name="channel_location" type="text_country" multiValued="true" stored="false" indexed="true"/>
+  <field name="channel_state" type="text_province" multiValued="true" stored="false" indexed="true"/>
+  <field name="channel_location" type="text_location" multiValued="true" stored="false" indexed="true"/>
   <field name="ingredients" type="text_ingredient" multiValued="true" stored="false" indexed="true"/>
+  <field name="video_langugages" type="text_languages" multiValued="true" stored="false" indexed="true"/>
   <field name="food_Content" type="text_food_content_type" multiValued="true" stored="false" indexed="true" default="veg"/>
   <dynamicField name="*_txt_en_split_tight" type="text_en_splitting_tight" indexed="true" stored="false"/>
   <dynamicField name="*_descendent_path" type="descendent_path" indexed="true" stored="false"/>
@@ -565,10 +576,9 @@
   <dynamicField name="*_p" type="location" indexed="true" stored="false"/>
   <dynamicField name="*_c" type="currency" indexed="true" stored="false"/>
   <copyField source="*" dest="_text_"/>
-  <copyField source="vedioTag" dest="video_country"/>
-  <copyField source="description" dest="video_country"/>
-  <copyField source="vedioTag" dest="ingredients"/>
-  <copyField source="description" dest="ingredients"/>
-  <copyField source="vedioTag" dest="food_Content"/>
-  <copyField source="description" dest="food_Content"/>
+  <copyField source="allData" dest="video_country"/>
+  <copyField source="allData" dest="video_state"/>
+  <copyField source="allData" dest="ingredients"/>
+  <copyField source="allData" dest="food_Content"/>
+  <copyField source="allData" dest="video_langugages"/>
 </schema>

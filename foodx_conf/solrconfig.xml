@@ -195,7 +195,7 @@
       <fragListBuilder name="simple" class="solr.highlight.SimpleFragListBuilder"/>
       <fragListBuilder name="single" class="solr.highlight.SingleFragListBuilder"/>
       <fragListBuilder name="weighted" default="true" class="solr.highlight.WeightedFragListBuilder"/>
-      <fragmentsBuilder name="default" default="true" class="solr.highlight.ScoreOrderFragmentsBuilder">      </fragmentsBuilder>
+      <fragmentsBuilder name="default" default="true" class="solr.highlight.ScoreOrderFragmentsBuilder"></fragmentsBuilder>
       <fragmentsBuilder name="colored" class="solr.highlight.ScoreOrderFragmentsBuilder">
         <lst name="defaults">
           <str name="hl.tag.pre">
